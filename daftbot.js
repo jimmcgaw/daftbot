@@ -143,7 +143,7 @@ var gpio = require('pi-gpio');
   };
 
   Vehicle.prototype.getWhiskers = function(){
-    this.sensors.filter(function(sensor){
+    return this.sensors.filter(function(sensor){
       return sensor instanceof Whisker;
     });
   };
@@ -156,7 +156,6 @@ var gpio = require('pi-gpio');
 
     var vehicle = this;
     var whiskers = this.getWhiskers();
-
     for (var i = 0, len = whiskers.length; i < len; i++){
       var whisker = whiskers[i];
       gpio.read(whisker.pinIn, function(err, value){
