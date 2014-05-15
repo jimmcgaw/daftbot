@@ -1,3 +1,5 @@
+var gpio = require('pi-gpio');
+
 // entry point for daftbot npm module
 
 (function(){
@@ -20,7 +22,6 @@
   };
 
   Motor.prototype.enable = function(){
-    console.log("enabling motor pins " + this.pins.motor_1 + " and " + this.pins.motor_2);
     gpio.open(this.pins.motor_1, "output", function(){})
     gpio.open(this.pins.motor_2, "output", function(){})
     
@@ -34,7 +35,6 @@
 
   // start motor forward
   Motor.prototype.forward = function(){
-    console.log("Motor on pin " + this.pins.motor_1 + " set to forward");
     // TODO : abstract this away
     gpio.write(this.pins.motor_2, LOW, function(){});
     gpio.write(this.pins.motor_1, HIGH, function(){});
@@ -42,7 +42,6 @@
 
   // start motor backwards
   Motor.prototype.reverse = function(){
-    console.log("Motor on pin " + this.pins.motor_1 + " set to forward");
     // TODO : abstract this away
     gpio.write(this.pins.motor_1, LOW, function(){});
     gpio.write(this.pins.motor_2, HIGH, function(){});
@@ -61,7 +60,6 @@
   };
 
   Whisker.prototype.enable = function(){
-    console.log("enabling whisker pins " + this.pinIn + " and " + this.out);
     gpio.open(this.pinIn, "input", function(){});
     
     var whisker_out = this.out;

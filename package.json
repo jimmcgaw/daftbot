@@ -1,6 +1,6 @@
 {
   "name": "daftbot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "JavaScript library for creating simple robots with Raspberry Pi.",
   "main": "daftbot.js",
   "scripts": {
